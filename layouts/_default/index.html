@@ -1,0 +1,103 @@
+{{ define "main" }}
+<main>
+    <!-- Header -->
+    <header>
+        <!-- Heading -->
+        <h1>
+            We’re Abby & Julie, an experienced creative duo based in colorful
+            Colorado.
+        </h1>
+
+        <!-- Description -->
+        <p>
+            We specialize in designing and installing sensory murals that invite
+            interaction, regulation, and joy for all ages. Alongside immersive
+            sensory work, we create bold, graphic murals for shops, restaurants,
+            homes, offices, and public spaces of all sizes. We also offer hand
+            painted mural installation of pre-designed artwork, branding, and
+            advertising directly onto walls, making high-impact visuals
+            accessible for a wide range of spaces.
+        </p>
+
+        <!-- Button -->
+        <a
+            href="https://calendly.com/lupinedesigncompany/30min"
+            rel="noopener noreferrer"
+            target="_blank"
+            >Book An Intro Call ↗</a
+        >
+    </header>
+
+    <!-- Services  -->
+    {{ if .Site.Taxonomies.services }}
+    <section>
+        <h2>Our Services</h2>
+        <nav>
+            <ul>
+                {{ range $name, $taxonomy := .Site.Taxonomies.services }} {{
+                with $.Site.GetPage (printf "/services/%s" $name) }}
+                <li>
+                    <a href="{{ .RelPermalink }}">{{ $name }}</a>
+                </li>
+                {{end}} {{end}}
+            </ul>
+        </nav>
+    </section>
+    {{ else }} {{ end }}
+
+    <!-- Work -->
+    <section>
+        <h2>Latest Work</h2>
+        <nav>
+            <ul>
+                {{ range (site.GetPage "work/").Pages }}
+                <li>
+                    <!-- Section Title -->
+                    <b>{{ .Title }}</b>
+                    <a href="{{ .RelPermalink }}">See All →</a>
+                    <ul>
+                        <!-- Pages -->
+                        {{ range .Pages }} {{ if .Params.Featured }}
+                        <li>
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </li>
+                        {{ else }}{{ end }} {{ end }}
+                    </ul>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Reviews -->
+    <section>
+        <h2>Reviews</h2>
+    </section>
+    <blockquote>
+        "Lupine Designs did such an amazing job creating a sensory mural for our
+        ABA clinic. They took our ideas and turned them into a reality and is
+        greater than we could have imagined! We are so appreciative of Julie and
+        Abby's creativity and work to create us something that the kiddos in our
+        clinic absolutely love!"
+        <footer>
+            <cite>– Natalie Costigan</cite>
+        </footer>
+    </blockquote>
+    <blockquote>
+        "We're thrilled with the quality of work, the customer service, and the
+        creativity of this amazing company! Highly recommend!"
+        <footer>
+            <cite>– Emily Reilly</cite>
+        </footer>
+    </blockquote>
+    <blockquote>
+        "Working with Abby and Julie was a breeze! Communication was clear and
+        easy. The day of painting was seamless and the mural they painted was
+        exactly like the image they provided. Exceeded my expectations and I
+        look forward to working with them again in the future!"
+        <footer>
+            <cite>– Amanda Ball</cite>
+        </footer>
+    </blockquote>
+</main>
+{{ end }}

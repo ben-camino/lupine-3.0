@@ -1,0 +1,6 @@
+baseURL = 'https://lupinemurals.com/'
+languageCode = 'en-us'
+title = 'Lupine Design Co.'
+
+[taxonomies]
+  service = 'services'

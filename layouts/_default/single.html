@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main>
+    <!-- Header -->
+    <header>
+        <!-- Title -->
+        {{ with .Title }}
+        <h1>{{ . }}</h1>
+        {{ end }}
+
+        <!-- Subtitle -->
+        {{ with .Params.Subtitle }}
+        <h2>{{ . }}</h2>
+        {{ end }}
+
+        <!-- Description -->
+        {{ with .Description }}
+        <p>{{ . }}</p>
+        {{ end}}
+    </header>
+
+    <!-- Markdown -->
+    {{ with .Content }}
+    <section>{{ . }}</section>
+    {{ end }}
+</main>
+{{ end }}

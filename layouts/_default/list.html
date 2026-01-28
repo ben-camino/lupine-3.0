@@ -1,0 +1,43 @@
+{{ define "main" }}
+<main>
+    <!-- Header -->
+    <header>
+        <!-- Title -->
+        {{ with .Title }}
+        <h1>{{ . }}</h1>
+        {{ end }}
+
+        <!-- Subtitle -->
+        {{ with .Params.Subtitle }}
+        <h2>{{ . }}</h2>
+        {{ end }}
+
+        <!-- Description -->
+        {{ with .Description }}
+        <p>{{ . }}</p>
+        {{ end}}
+    </header>
+
+    <!-- Sections -->
+    {{ with .Pages }}
+    <nav>
+        <ul>
+            {{ range . }}
+            <li>
+                <!-- Section Title -->
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <ul>
+                    <!-- Pages -->
+                    {{ range .Pages }}
+                    <li>
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </li>
+            {{ end }}
+        </ul>
+    </nav>
+    {{ end }}
+</main>
+{{ end }}

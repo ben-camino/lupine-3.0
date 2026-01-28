@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Meta -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Title -->
+        {{ with .Title }}
+        <title>{{ . }}</title>
+        {{ end }}
+
+        <!-- Description -->
+        {{ with .Description }}
+        <meta name="description" content="{{ . }}" />
+        {{ end }}
+
+        <!-- Favicon -->
+        {{ with resources.Get "favicon.png" }} {{ $favicon := .Fill "48x48 png"
+        }}
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="{{ $favicon.RelPermalink }}"
+        />
+        {{ end }}
+
+        <!-- CSS -->
+        {{ with resources.Match "css/**.css" }} {{ $css := . | resources.Concat
+        "main.css" | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ $css.RelPermalink }}" media="all" />
+        {{ end }}
+
+        <!-- Inter font -->
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <nav>
+                <ul>
+                    <!-- Home -->
+                    <li>
+                        <a href="/">
+                            
+                            <!-- Brand Mark -->
+                            {{ with resources.Get "brand-mark.svg" }}
+                                {{ .Content | safeHTML }}
+                            {{ end }}
+                            
+                            <!-- Site Title -->
+                            {{ .Site.Title }}
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <!-- Resume  -->
+                    {{ with resources.Get "Lupine-Design-Co-Resume.pdf" }}
+                    <li>
+                        <a
+                            href="{{ .RelPermalink }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download
+                            >Resume ⤓</a
+                        >
+                    </li>
+                    {{ end }}
+                    
+                    <!-- Merch  -->
+                    <li>
+                        <a href="https://lupinedesignco.square.site/" rel="noopener noreferrer" target="_blank">Merch ↗</a>
+                    </li>
+                    
+                    <!-- Inquiries  -->
+                    <li>
+                        <a href="{{ relref . "/inquires" }}">Inquires</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        {{ block "main" . }}{{ end }}
+
+        <!-- Footer -->
+        <footer>
+            <!-- Copyright  -->
+            <p>© {{ .Site.Title }} {{ now.Year }}</p>
+                
+            <!-- Pitch Deck  -->
+            {{ with resources.Get "Lupine-Design-Co-Pitch-Deck.pdf" }}
+                <a
+                    href="{{ .RelPermalink }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    >Pitch Deck ⤓</a
+                >
+            {{ end }}
+        </footer>
+    </body>
+</html>

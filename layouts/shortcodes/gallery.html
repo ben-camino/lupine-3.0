@@ -1,0 +1,22 @@
+{{ if .Get "image" }} {{ $image := .Get "image" }}
+<div>
+    <!-- Range Images -->
+    {{ range .Page.Resources.ByType "image" }}
+    <!-- If Contains -->
+    {{ if strings.Contains .Title $image }}
+    <!-- Resize Image -->
+    {{ $image := .Resize "1920x webp q90" }}
+    <!-- Name -->
+    {{ $name := strings.TrimSuffix (path.Ext .Name) .Name }}
+    <!-- Alt Text -->
+    {{ $name_fmt := humanize $name}}
+    <!-- Image -->
+    <img
+        src="{{ $image.RelPermalink }}"
+        width="960px"
+        height="auto"
+        alt="{{ $name_fmt }}"
+    />
+    {{else}} {{ end }} {{ end }}
+</div>
+{{ else }} {{ end }}

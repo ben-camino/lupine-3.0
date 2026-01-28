@@ -1,0 +1,41 @@
+/* styles */
+
+a {
+    color: var(--blue-5);
+    font-size: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    -webkit-text-decoration: none;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline;
+    text-underline-offset: 0.125rem;
+}
+
+button,
+.button {
+    color: var(--white);
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1rem;
+    display: flex;
+    padding: 0.75rem 1rem;
+    margin: 0;
+    gap: 1rem;
+    background-color: var(--green-5);
+    outline: none;
+    border: none;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+img {
+    max-width: 100%;
+}

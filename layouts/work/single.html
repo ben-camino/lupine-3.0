@@ -1,0 +1,66 @@
+{{ define "main" }}
+<main>
+    <!-- Header -->
+    <header>
+        <!-- Parent -->
+        {{ with .Parent }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}/</a>
+        {{ end }}
+
+        <!-- Title -->
+        {{ with .Title }}
+        <h1>{{ . }}</h1>
+        {{ end }}
+
+        <!-- Subtitle -->
+        {{ with .Params.Subtitle }}
+        <h2>{{ . }}</h2>
+        {{ end }}
+
+        <!-- Description -->
+        {{ with .Description }}
+        <p>{{ . }}</p>
+        {{ end}}
+
+        <!-- Params -->
+        {{ if or ( .GetTerms "services" ) ( .Params.Date ) ( .Params.Location)
+        }}
+
+        <ul>
+            <!-- Services -->
+            {{ with .GetTerms "services" }} {{ range . }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }} {{ end }}
+        </ul>
+
+        <ul>
+            <!-- Date -->
+            {{ with .Params.Date }}
+            <li>{{ .Month }} {{ .Year }}</li>
+            {{ end }}
+
+            <!-- Location -->
+            {{ with .Params.Location }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+
+        {{ else }} {{ end }}
+    </header>
+
+    <!-- Markdown -->
+    {{ with .Content }}
+    <section>{{ . }}</section>
+    {{ end }}
+
+    <!-- Next Page -->
+    {{ with .PrevInSection }}
+    <section>
+        <h4>Next:</h4>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </section>
+    {{ end }}
+</main>
+{{ end }}

@@ -1,0 +1,76 @@
+{{ define "main" }}
+<main>
+    <!-- Header -->
+    <header>
+        <hgroup>
+            <!-- Title -->
+            {{ with .Title }}
+            <h3>{{ . }}</h3>
+            {{ end }}
+
+            <!-- Subtitle -->
+            {{ with .Params.Subtitle }}
+            <h1>{{ . }}</h1>
+            {{ end }}
+        </hgroup>
+
+        <!-- Description -->
+        {{ with .Description }}
+        <p>{{ . }}</p>
+        {{ end}}
+    </header>
+
+    <!-- Work -->
+    <section>
+        <!-- Work Nav -->
+        <nav>
+            <ul class="work-nav">
+                <li>
+                    <a href="{{ relref . "/work" }}">All</a>
+                </li>
+                {{ range (site.GetPage "work/").Pages }}
+                <li>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    
+        <!-- Work List -->
+        {{ $pages := .RegularPagesRecursive }}
+        {{ $paginator := .Paginate $pages 12 }}
+
+        {{ with $paginator.Pages }}
+        <nav>
+            <ul class="work-grid">
+                {{ range . }}
+                    <!-- Work Item -->
+                    {{ partial "work-item.html" . }}
+                {{ end }}
+            </ul>
+        </nav>
+        {{ end }}
+            <!-- Pagination -->
+            {{ if gt $paginator.TotalPages 1 }}
+            <footer class="pagination">
+                <nav>
+                    <small>Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</small>
+                    <ul>
+                        {{ if $paginator.HasPrev }}
+                        <li><a href="{{ $paginator.Prev.URL }}">←</a></li>
+                        {{ else }}
+                        <li>←</li>
+                        {{ end }}
+                        {{ if $paginator.HasNext }}
+                        <li><a href="{{ $paginator.Next.URL }}">→</a></li>
+                        {{ else }}
+                        <li>→</li>
+                        {{ end }}
+                    </ul>
+                </nav>
+            </footer>
+            {{ end }}
+    </section>
+
+</main>
+{{ end }}

@@ -1,9 +1,9 @@
 +++
 title = "Tuk Tuk Thai Grill"
-services = [ "interior murals" ]
+services = [ "branded murals" ]
 date = 2024-10-01
 location = "Westminster, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

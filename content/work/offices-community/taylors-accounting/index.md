@@ -1,9 +1,9 @@
 +++
 title = "Taylor's Accounting"
-services = [ "interior murals" ]
+services = [ "custom murals" ]
 date = 2023-10-01
 location = "Denver, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

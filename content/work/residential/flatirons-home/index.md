@@ -1,9 +1,9 @@
 +++
 title = "Flatirons Home"
-services = [ "interior murals" ]
+services = [ "custom murals" ]
 date = 2024-11-01
 location = "Boulder, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

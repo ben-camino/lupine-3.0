@@ -1,9 +1,9 @@
 +++
 title = "Journey Church"
-services = [ "interior murals" ]
+services = [ "branded murals" ]
 date = 2023-09-01
 location = "Castle Rock, Colorado"
-featured = true
+featured = false
 +++
 
 In collaboration with Wit.Co designs.

@@ -1,0 +1,107 @@
+.hero {
+    padding: 0;
+    width: 100%;
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 3rem;
+    overflow: visible;
+}
+
+.hero > header {
+    padding: 96px 0;
+    justify-content: center;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.description .start {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+.description .end {
+    position: relative;
+    height: 48px;
+    width: 48px;
+    min-height: 24px;
+    min-width: 24px;
+}
+
+.description .end img {
+    position: absolute;
+    max-width: none;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    border-radius: 2.25rem;
+    z-index: 10;
+}
+
+.hero h1 > span {
+    color: var(--red-3);
+}
+
+.hero > div {
+    position: relative;
+    height: 100%;
+}
+
+.hero > div img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50vw;
+    height: 100%;
+    max-width: none;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+@media (max-width: 720px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: none;
+        gap: 0;
+    }
+    .description {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .hero > div {
+        background-color: red;
+        height: 480px;
+    }
+    .hero > div img {
+        width: 100vw;
+        height: 480px;
+        transform: translate(-1rem);
+    }
+
+    .description .start {
+        z-index: 2;
+    }
+
+    .description .end {
+        position: relative;
+        height: 0px;
+        width: 0px;
+        min-height: 0px;
+        min-width: px;
+        z-index: 1;
+    }
+
+    .description .end img {
+        left: unset;
+        right: 0;
+    }
+}

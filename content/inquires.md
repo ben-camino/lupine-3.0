@@ -1,5 +1,0 @@
-+++
-title = "Inquiries"
-+++
-
-{{< contact >}}

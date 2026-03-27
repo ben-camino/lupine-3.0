@@ -1,6 +1,6 @@
 +++
 title = "J Claire Fashion"
-services = [ "interior murals" ]
+services = [ "branded murals" ]
 date = 2023-10-01
 location = "Littleton, Colorado"
 featured = false

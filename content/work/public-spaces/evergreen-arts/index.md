@@ -1,9 +1,9 @@
 +++
 title = "Center for the Arts Evergreen"
-services = [ "interior murals", "paint-by-number murals" ]
+services = [ "paint-by-number murals" ]
 date = 2025-04-15
 location = "Evergreen, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

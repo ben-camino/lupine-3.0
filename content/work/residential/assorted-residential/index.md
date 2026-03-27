@@ -1,6 +1,6 @@
 +++
 title = "Assorted Residential"
-services = [ "interior murals" ]
+services = [ "custom murals" ]
 date = 2022-06-01
 location = "Denver, Colorado"
 +++

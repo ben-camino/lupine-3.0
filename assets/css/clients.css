@@ -1,0 +1,9 @@
+.clients-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.clients-grid img {
+    border-radius: 0;
+}

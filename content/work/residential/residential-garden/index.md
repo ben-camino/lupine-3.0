@@ -1,9 +1,9 @@
 +++
 title = "Residential Garden"
-services = [ "exterior murals" ]
+services = [ "custom murals" ]
 date = 2025-07-01
 location = "Littleton, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

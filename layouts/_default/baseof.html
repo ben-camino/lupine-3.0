@@ -34,6 +34,11 @@
         <!-- Inter font -->
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Boldonse&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -43,40 +48,32 @@
                 <ul>
                     <!-- Home -->
                     <li>
-                        <a href="/">
-                            
+                        <a class="site-title" href="/">
                             <!-- Brand Mark -->
-                            {{ with resources.Get "brand-mark.svg" }}
+                            {{ with resources.Get "word-mark.svg" }}
                                 {{ .Content | safeHTML }}
                             {{ end }}
                             
-                            <!-- Site Title -->
-                            {{ .Site.Title }}
+                            <!-- Site Title 
+                            <b>{{ .Site.Title }}</b>
+                            -->
                         </a>
                     </li>
                 </ul>
                 <ul>
-                    <!-- Resume  -->
-                    {{ with resources.Get "Lupine-Design-Co-Resume.pdf" }}
+                    <!-- Work  -->
                     <li>
-                        <a
-                            href="{{ .RelPermalink }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            download
-                            >Resume ⤓</a
-                        >
+                        <a href="{{ relref . "/work" }}">Work</a>
                     </li>
-                    {{ end }}
-                    
-                    <!-- Merch  -->
+
+                    <!-- Work  -->
                     <li>
-                        <a href="https://lupinedesignco.square.site/" rel="noopener noreferrer" target="_blank">Merch ↗</a>
+                        <a href="{{ relref . "/services" }}">Services</a>
                     </li>
                     
                     <!-- Inquiries  -->
                     <li>
-                        <a href="{{ relref . "/inquires" }}">Inquires</a>
+                        <a class="button" href="{{ relref . "/inquiries" }}">Inquiries</a>
                     </li>
                 </ul>
             </nav>
@@ -86,20 +83,93 @@
         {{ block "main" . }}{{ end }}
 
         <!-- Footer -->
-        <footer>
-            <!-- Copyright  -->
-            <p>© {{ .Site.Title }} {{ now.Year }}</p>
-                
-            <!-- Pitch Deck  -->
-            {{ with resources.Get "Lupine-Design-Co-Pitch-Deck.pdf" }}
-                <a
-                    href="{{ .RelPermalink }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                    >Pitch Deck ⤓</a
-                >
-            {{ end }}
-        </footer>
+        <section class="blue-invert">
+            <header>
+                <hgroup>
+                    <!-- Title -->
+                    <h3>There’s more</h3>
+
+                    <!-- Subtitle -->
+                    <h1>
+                        Get to know Lupine Design Co.
+                    </h1>
+                </hgroup>
+            </header>    
+            <nav>
+                <ul class="resource-grid">
+                    <!-- Instagram  -->
+                    <li>
+                        
+                        
+                        <a 
+                            class="resource-item"
+                            href="https://www.instagram.com/lupinedesignco/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            ><h4>Instagram</h4></a>
+                    </li>
+
+                    <!-- Resume  -->
+                    {{ with resources.Get "Lupine-Design-Co-Resume.pdf" }}
+                    <li>
+                        <a
+                            class="resource-item"    
+                            href="{{ .RelPermalink }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download
+                            >
+                            <!-- Icon 
+                            {{ with resources.Get "resources/resume.svg" }}
+                                <object>
+                                    {{ .Content | safeHTML }}
+                                </object>
+                            {{ end }}
+                             -->
+                            <h4>Resume</h4>
+                            </a
+                        >
+                    </li>
+                    {{ end }}
+                    
+                    <!-- Pitch Deck  -->
+                    {{ with resources.Get "Lupine-Design-Co-Pitch-Deck.pdf" }}
+                    <li>
+                        <a
+                            class="resource-item"
+                            href="{{ .RelPermalink }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download
+                            ><h4>Pitch Deck</h4></a
+                        >
+                    </li>
+
+                    <!-- Merch  -->
+                    <li>
+                        <a 
+                            class="resource-item"
+                            href="https://lupinedesignco.square.site/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            ><h4>Merch</h4></a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </nav>
+            <!-- Description -->
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. 
+            </p>
+
+            <!-- Button -->
+            <a
+                class="button"
+                href="https://calendly.com/lupinedesigncompany/30min"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Book a Call ↗</a
+            >
+        </section>
     </body>
 </html>

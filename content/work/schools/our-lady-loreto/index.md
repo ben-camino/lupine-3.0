@@ -1,6 +1,6 @@
 +++
 title = "Our Lady of Loreto School"
-services = [ "interior murals" ]
+services = [ "custom murals" ]
 date = 2024-07-01
 location = "Aurora, Colorado"
 +++

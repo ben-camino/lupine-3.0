@@ -1,6 +1,6 @@
 +++
 title = "Autism West Behavior Partners"
-services = [ "interior murals", "sensory murals" ]
+services = [ "sensory installations" ]
 date = 2025-11-01
 location = "Aurora, Colorado"
 featured = true

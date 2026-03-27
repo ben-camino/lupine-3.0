@@ -1,0 +1,24 @@
+<li>
+    <a class="work-item" href="{{ .RelPermalink }}">
+        <!-- Title -->
+        <span class="title">
+            <b>{{ .Title }}</b>
+        </span>
+
+        <!-- Image -->
+        {{ range first 1 (.Resources.ByType "image") }}
+        <!-- Format -->
+        {{ $image_fmt := .Fill "720x720 webp q90" }}
+        <!-- Alt-text -->
+        {{ $name := strings.TrimSuffix (path.Ext .Name) .Name }} {{ $name_fmt :=
+        humanize $name}}
+        <!-- Image -->
+        <img
+            src="{{ $image_fmt.RelPermalink }}"
+            width="240px"
+            height="auto"
+            alt="{{ $name_fmt }}"
+        />
+        {{ end }}
+    </a>
+</li>

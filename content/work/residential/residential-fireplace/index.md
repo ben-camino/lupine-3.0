@@ -1,9 +1,9 @@
 +++
 title = "Residential Fireplace"
-services = [ "interior murals" ]
+services = [ "custom murals" ]
 date = 2025-09-01
 location = "Denver, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

@@ -1,6 +1,6 @@
 +++
 title = "The Third Place for Kids"
-services = [ "interior murals", "sensory murals" ]
+services = [ "sensory installations" ]
 date = 2025-04-01
 location = "Parker, Colorado"
 featured = true

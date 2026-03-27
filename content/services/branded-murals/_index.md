@@ -1,0 +1,5 @@
++++
+title = "Branded Murals"
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+weight = 2
++++

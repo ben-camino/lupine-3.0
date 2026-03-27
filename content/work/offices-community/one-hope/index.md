@@ -1,6 +1,6 @@
 +++
 title = "One Hope Church"
-services = [ "interior murals" ]
+services = [ "branded murals" ]
 date = 2024-04-01
 location = "Littleton, Colorado"
 featured = false

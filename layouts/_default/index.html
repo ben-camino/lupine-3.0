@@ -1,103 +1,212 @@
 {{ define "main" }}
 <main>
-    <!-- Header -->
-    <header>
-        <!-- Heading -->
-        <h1>
-            We’re Abby & Julie, an experienced creative duo based in colorful
-            Colorado.
-        </h1>
 
-        <!-- Description -->
-        <p>
-            We specialize in designing and installing sensory murals that invite
-            interaction, regulation, and joy for all ages. Alongside immersive
-            sensory work, we create bold, graphic murals for shops, restaurants,
-            homes, offices, and public spaces of all sizes. We also offer hand
-            painted mural installation of pre-designed artwork, branding, and
-            advertising directly onto walls, making high-impact visuals
-            accessible for a wide range of spaces.
-        </p>
+    <!-- Hero -->
+    <section class="hero">
+        <header>
+            <hgroup>
+                <!-- Title -->
+                <h3>Hi there,</h3>
 
-        <!-- Button -->
-        <a
-            href="https://calendly.com/lupinedesigncompany/30min"
-            rel="noopener noreferrer"
-            target="_blank"
-            >Book An Intro Call ↗</a
-        >
-    </header>
+                <!-- Subtitle -->
+                <h1>
+                    <span>We’re Lupine</span> – a mural team based in <span>Denver, Colorado.</span>
+                </h1>
+            </hgroup>
+
+            <!-- Description -->
+            <div class="description">
+                <div class="start">
+                    <p>
+                        We specialize in designing and installing sensory murals that invite interaction, regulation, and joy for all ages. Want to make something together?
+                    </p>
+
+                    {{ partial "subscribe.html" . }}
+
+                    <!-- Button 
+                    <a
+                        class="button"
+                        href="{{ relref . "/inquiries"}}"
+                        >Let's Talk</a
+                    >
+
+
+                    <p>
+                        – Abby & Julie
+                    </p>
+                    -->
+
+                </div>
+ 
+                <!-- Image Right -->
+                {{ with resources.Get "index/abby-julie-lupine.jpg" }}
+                    {{ $image := .Fill "640x640 center q90 webp" }}
+                    {{ $name := strings.TrimSuffix
+                    (path.Ext .Name) .Name }}
+                    {{ $name_fmt := humanize $name}}
+                    <div class="end">
+                        <img
+                            src="{{ $image.RelPermalink }}"
+                            width="240px"
+                            height="240px"
+                            alt="{{ $name_fmt }}"
+                        />
+                    </div>
+                {{ end }}
+            </div>
+        </header>
+
+        <!-- Image Right -->
+        {{ with resources.Get "index/heritage-sensory-mural.png" }}
+            {{ $image := .Fill "1920x1920 center q90 webp" }}
+            {{ $name := strings.TrimSuffix
+            (path.Ext .Name) .Name }}
+            {{ $name_fmt := humanize $name}}
+            <div>
+                <img
+                    src="{{ $image.RelPermalink }}"
+                    alt="{{ $name_fmt }}"
+                />
+            </div>
+        {{ end }}
+    </section>
+
+    <!-- Subscribe 
+    <section class=" subscribe red">
+        <header>
+            <hgroup>
+                <h3>Follow Us</h3>
+
+                <h1>
+                    Subscribe for updates
+                </h1>
+            </hgroup>
+        </header>
+        {{ partial "subscribe.html" . }}
+    </section>
+    -->
 
     <!-- Services  -->
     {{ if .Site.Taxonomies.services }}
-    <section>
-        <h2>Our Services</h2>
+    <section class="blue-invert">
+        <header>
+            <hgroup>
+                <!-- Title -->
+                <h3>Our Services</h3>
+
+                <!-- Subtitle -->
+                <h1>
+                    Design, Painting & Installation
+                </h1>
+            </hgroup>
+        </header>
         <nav>
-            <ul>
-                {{ range $name, $taxonomy := .Site.Taxonomies.services }} {{
-                with $.Site.GetPage (printf "/services/%s" $name) }}
-                <li>
-                    <a href="{{ .RelPermalink }}">{{ $name }}</a>
+            <ul class="services-grid">
+                {{ $section := .Site.GetPage "/services" }} {{ range
+                $section.Pages }}
+                <li >
+                    <a class="service-item" href="{{ .Page.RelPermalink }}">
+                    
+                        <!-- Icon -->
+                        {{ with .Page.Resources.Get "icon.svg" }}
+                        <object>
+                            {{ .Content | safeHTML }}
+                        </object>
+                        {{ end }}
+                        
+                        <!-- Title -->
+                        <h4>{{ .Page.Title }}</h4>
+                        <!-- Description -->
+                        {{ with .Page.Description }}
+                        <small>{{ . }}</small>
+                        {{ end }}
+                    </a>
                 </li>
-                {{end}} {{end}}
+                {{end}}
             </ul>
         </nav>
+        <!-- Footer -->
+        <footer>
+            <p>We offer end-to-end or individual services to fit your project.</p>
+            <a
+                class="button"
+                href="https://calendly.com/lupinedesigncompany/30min"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Book a Call ↗</a
+            >
+        </footer>
     </section>
     {{ else }} {{ end }}
 
-    <!-- Work -->
+    <!-- Recent Work -->
     <section>
-        <h2>Latest Work</h2>
+
+        <header>
+            <hgroup>
+                <!-- Title -->
+                <h3>Experience matters</h3>
+
+                <!-- Subtitle -->
+                <h1>
+                    Over 100 walls painted in Colorful Colorado
+                </h1>
+            </hgroup>
+        </header>
+
+        <!-- Work Grid -->
         <nav>
-            <ul>
-                {{ range (site.GetPage "work/").Pages }}
-                <li>
-                    <!-- Section Title -->
-                    <b>{{ .Title }}</b>
-                    <a href="{{ .RelPermalink }}">See All →</a>
-                    <ul>
-                        <!-- Pages -->
-                        {{ range .Pages }} {{ if .Params.Featured }}
-                        <li>
-                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                        </li>
-                        {{ else }}{{ end }} {{ end }}
-                    </ul>
-                </li>
+            <ul class="work-grid">
+                {{ range (site.GetPage "work/").RegularPagesRecursive }}
+                    <!-- If featured -->
+                    {{ if .Params.Featured }}
+                        <!-- Work Item -->
+                        {{ partial "work-item.html" . }}
+                    {{ else }}{{ end }}
                 {{ end }}
             </ul>
         </nav>
+            
+        <!-- Footer -->
+        <footer>
+            <a
+                class="button"
+                href="{{ relref . "/work"}}"
+                >See More</a
+            >
+        </footer>
     </section>
 
-    <!-- Reviews -->
-    <section>
-        <h2>Reviews</h2>
+    <!-- Clients -->
+    <section class="red">
+        <header>
+            <hgroup>
+                <!-- Title -->
+                <h3>We work with great people</h3>
+
+                <!-- Subtitle -->
+                <h1>
+                    Commercial, Residential & Non-Profit
+                </h1>
+            </hgroup>
+        </header>
+        <div class="clients-grid">
+            {{ range resources.Match "clients/*.*" }}
+            <img src="{{ .RelPermalink }}" width="auto" height="64px" alt="" />
+            {{ end }}
+        </div>
+        <blockquote>
+            <p>
+                "Lupine Designs did such an amazing job creating a sensory mural for
+                our ABA clinic. They took our ideas and turned them into a reality
+                and is greater than we could have imagined! We are so appreciative
+                of Julie and Abby's creativity and work to create us something that
+                the kiddos in our clinic absolutely love!"
+            </p>
+            <footer>
+                <cite><span>Natalie Costigan,</span> Valverde Elementary School</cite>
+            </footer>
+        </blockquote>
     </section>
-    <blockquote>
-        "Lupine Designs did such an amazing job creating a sensory mural for our
-        ABA clinic. They took our ideas and turned them into a reality and is
-        greater than we could have imagined! We are so appreciative of Julie and
-        Abby's creativity and work to create us something that the kiddos in our
-        clinic absolutely love!"
-        <footer>
-            <cite>– Natalie Costigan</cite>
-        </footer>
-    </blockquote>
-    <blockquote>
-        "We're thrilled with the quality of work, the customer service, and the
-        creativity of this amazing company! Highly recommend!"
-        <footer>
-            <cite>– Emily Reilly</cite>
-        </footer>
-    </blockquote>
-    <blockquote>
-        "Working with Abby and Julie was a breeze! Communication was clear and
-        easy. The day of painting was seamless and the mural they painted was
-        exactly like the image they provided. Exceeded my expectations and I
-        look forward to working with them again in the future!"
-        <footer>
-            <cite>– Amanda Ball</cite>
-        </footer>
-    </blockquote>
 </main>
 {{ end }}

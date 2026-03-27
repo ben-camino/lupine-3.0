@@ -1,0 +1,69 @@
+.resources-section > ul {
+    width: 100%;
+}
+
+.resource-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.resource-item {
+    color: var(--blue-7);
+    stroke: var(--yellow-7);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--blue-1);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.resource-grid > li:nth-child(1) > a {
+    background-color: var(--blue-0);
+}
+
+.resource-grid > li:nth-child(2) > a {
+    background-color: var(--green-0);
+}
+
+.resource-grid > li:nth-child(3) > a {
+    background-color: var(--red-0);
+}
+
+.resource-grid > li:nth-child(4) > a {
+    background-color: var(--yellow-0);
+}
+
+.resource-grid > li > a:hover,
+.resource-grid > li > a:active {
+    box-shadow: var(--shadow-1) 0px 4px 12px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--white);
+}
+
+.resource-grid > li:nth-child(1) h4 {
+    color: var(--blue-5);
+}
+
+.resource-grid > li:nth-child(2) h4 {
+    color: var(--green-5);
+}
+
+.resource-grid > li:nth-child(3) h4 {
+    color: var(--red-5);
+}
+
+.resource-grid > li:nth-child(4) h4 {
+    color: var(--yellow-5);
+}
+
+.resource-item > * {
+    margin: 0;
+}

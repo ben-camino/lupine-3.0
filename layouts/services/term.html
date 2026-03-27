@@ -1,0 +1,65 @@
+{{ define "main" }}
+<main>
+    <!-- Header -->
+
+    <header>
+        <hgroup>
+            <!-- Title -->
+            {{ with .Title }}
+            <h3>{{ . }}</h3>
+            {{ end }}
+
+            <!-- Subtitle -->
+            {{ with .Params.Subtitle }}
+            <h1>{{ . }}</h1>
+            {{ end }}
+        </hgroup>
+
+        <!-- Description -->
+        {{ with .Description }}
+        <p>{{ . }}</p>
+        {{ end}}
+    </header>
+
+    <!-- Markdown -->
+    {{ with .Content }}
+    <section>{{ . }}</section>
+    {{ end }}
+
+    <!-- Work -->
+    {{ $pages := .RegularPagesRecursive }} {{ $paginator := .Paginate $pages 12
+    }} {{ with $paginator.Pages }}
+    <section>
+        <nav>
+            <ul class="work-grid">
+                {{ range . }}
+                <!-- Work Item -->
+                {{ partial "work-item.html" . }} {{ end }}
+            </ul>
+        </nav>
+    </section>
+    {{ end }}
+
+    <!-- Pagination -->
+    {{ if gt $paginator.TotalPages 1 }}
+    <footer class="pagination">
+        <nav>
+            <p>
+                Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}
+            </p>
+            <ul>
+                {{ if $paginator.HasPrev }}
+                <li><a href="{{ $paginator.Prev.URL }}">←</a></li>
+                {{ else }}
+                <li>←</li>
+                {{ end }} {{ if $paginator.HasNext }}
+                <li><a href="{{ $paginator.Next.URL }}">→</a></li>
+                {{ else }}
+                <li>→</li>
+                {{ end }}
+            </ul>
+        </nav>
+    </footer>
+    {{ end }}
+</main>
+{{ end }}

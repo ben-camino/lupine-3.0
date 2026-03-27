@@ -1,9 +1,9 @@
 +++
 title = "Valverde Elementary"
-services = [ "paint-by-number murals", "interior murals" ]
+services = [ "paint-by-number murals" ]
 date = 2025-09-15
 location = "Denver, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

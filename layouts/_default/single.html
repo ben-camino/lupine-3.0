@@ -2,15 +2,17 @@
 <main>
     <!-- Header -->
     <header>
-        <!-- Title -->
-        {{ with .Title }}
-        <h1>{{ . }}</h1>
-        {{ end }}
+        <hgroup>
+            <!-- Title -->
+            {{ with .Title }}
+            <h3>{{ . }}</h3>
+            {{ end }}
 
-        <!-- Subtitle -->
-        {{ with .Params.Subtitle }}
-        <h2>{{ . }}</h2>
-        {{ end }}
+            <!-- Subtitle -->
+            {{ with .Params.Subtitle }}
+            <h1>{{ . }}</h1>
+            {{ end }}
+        </hgroup>
 
         <!-- Description -->
         {{ with .Description }}
@@ -19,8 +21,6 @@
     </header>
 
     <!-- Markdown -->
-    {{ with .Content }}
-    <section>{{ . }}</section>
-    {{ end }}
+    <section>{{ with .Content }} {{ . }} {{ end }}</section>
 </main>
 {{ end }}

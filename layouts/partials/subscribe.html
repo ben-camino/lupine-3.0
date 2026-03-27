@@ -1,0 +1,43 @@
+<!-- form -->
+
+<form
+    action="https://public.herotofu.com/v1/6d5e5930-cfa4-11ee-b355-cff7da8a1e7a"
+    method="post"
+    accept-charset="UTF-8"
+    class="subscribe"
+>
+    <h4>Stay in the know</h4>
+
+    <!-- email -->
+    <div class="email">
+        <label for="email">Email</label>
+        <input
+            name="Email"
+            id="email"
+            type="email"
+            placeholder="Email address"
+            required
+            oninvalid="setCustomValidity('This field is required')"
+        />
+    </div>
+
+    <!-- message -->
+    <div class="message">
+        <label for="message">Message*</label>
+        <textarea
+            name="Message"
+            id="message"
+            type="text"
+            disabled
+            required
+            oninvalid="setCustomValidity('This field is required')"
+        >
+Please subscribe me to the newsletter</textarea
+        >
+    </div>
+
+    <!-- submit -->
+    <div class="submit">
+        <input class="button" type="submit" value="Subscribe" />
+    </div>
+</form>

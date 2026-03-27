@@ -1,9 +1,9 @@
 +++
 title = "Developmental Pathways"
-services = [ "interior murals" ]
+services = [ "branded murals" ]
 date = 2025-07-01
 location = "Aurora, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

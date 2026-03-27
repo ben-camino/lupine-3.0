@@ -1,6 +1,6 @@
 +++
 title = "Belmar Shopping Center"
-services = [ "exterior murals" ]
+services = [ "custom murals" ]
 date = 2024-09-01
 location = "Lakewood, Colorado"
 featured = true

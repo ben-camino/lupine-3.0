@@ -1,6 +1,6 @@
 +++
 title = "Hutchinson Elementary"
-services = [ "interior murals" ]
+services = [ "custom murals" ]
 date = 2024-05-01
 location = "Lakewood, Colorado"
 +++

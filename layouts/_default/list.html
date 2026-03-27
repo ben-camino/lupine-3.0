@@ -2,15 +2,17 @@
 <main>
     <!-- Header -->
     <header>
-        <!-- Title -->
-        {{ with .Title }}
-        <h1>{{ . }}</h1>
-        {{ end }}
+        <hgroup>
+            <!-- Title -->
+            {{ with .Title }}
+            <h3>{{ . }}</h3>
+            {{ end }}
 
-        <!-- Subtitle -->
-        {{ with .Params.Subtitle }}
-        <h2>{{ . }}</h2>
-        {{ end }}
+            <!-- Subtitle -->
+            {{ with .Params.Subtitle }}
+            <h1>{{ . }}</h1>
+            {{ end }}
+        </hgroup>
 
         <!-- Description -->
         {{ with .Description }}
@@ -18,26 +20,19 @@
         {{ end}}
     </header>
 
-    <!-- Sections -->
+    <!-- Pages -->
     {{ with .Pages }}
-    <nav>
-        <ul>
-            {{ range . }}
-            <li>
-                <!-- Section Title -->
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                <ul>
-                    <!-- Pages -->
-                    {{ range .Pages }}
-                    <li>
-                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </li>
-            {{ end }}
-        </ul>
-    </nav>
+    <section>
+        <nav>
+            <ul>
+                {{ range . }}
+                <li>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </section>
     {{ end }}
 </main>
 {{ end }}

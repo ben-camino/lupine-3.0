@@ -1,7 +1,7 @@
 +++
 title = "PlayForge"
 date = 2025-10-01
-services = [ "branded murals", "interior murals" ]
+services = [ "branded murals" ]
 location = "Littleton, Colorado"
 featured = true
 +++

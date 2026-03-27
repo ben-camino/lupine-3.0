@@ -1,9 +1,9 @@
 +++
 title = "Columbine Sports Park"
-services = [ "exterior murals" ]
+services = [ "custom murals" ]
 date = 2023-05-01
 location = "Littleton, Colorado"
-featured = true
+featured = false
 +++
 
 {{< gallery image="gallery/" >}}

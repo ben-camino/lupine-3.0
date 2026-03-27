@@ -2,65 +2,51 @@
 <main>
     <!-- Header -->
     <header>
-        <!-- Parent -->
-        {{ with .Parent }}
-        <a href="{{ .RelPermalink }}">{{ .Title }}/</a>
-        {{ end }}
-
-        <!-- Title -->
-        {{ with .Title }}
-        <h1>{{ . }}</h1>
-        {{ end }}
-
-        <!-- Subtitle -->
-        {{ with .Params.Subtitle }}
-        <h2>{{ . }}</h2>
-        {{ end }}
-
-        <!-- Description -->
-        {{ with .Description }}
-        <p>{{ . }}</p>
-        {{ end}}
-
-        <!-- Params -->
-        {{ if or ( .GetTerms "services" ) ( .Params.Date ) ( .Params.Location)
-        }}
-
-        <ul>
-            <!-- Services -->
-            {{ with .GetTerms "services" }} {{ range . }}
-            <li>
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </li>
-            {{ end }} {{ end }}
-        </ul>
-
-        <ul>
-            <!-- Date -->
-            {{ with .Params.Date }}
-            <li>{{ .Month }} {{ .Year }}</li>
+        <hgroup>
+            <!-- Title -->
+            {{ with .Title }}
+            <h1>{{ . }}</h1>
             {{ end }}
 
-            <!-- Location -->
-            {{ with .Params.Location }}
-            <li>{{ . }}</li>
-            {{ end }}
-        </ul>
+            <div class="params">
+                <!-- Location -->
+                {{ with .Params.Location }}
+                <h3>{{ . }}</h3>
+                {{ end }}
 
-        {{ else }} {{ end }}
+                <h3>•</h3>
+
+                <!-- Date -->
+                {{ with .Params.Date }}
+                <h3 class="date">{{ .Month }} {{ .Year }}</h3>
+                {{ end }}
+            </div>
+
+            <nav class="work-nav">
+                <ul>
+                    <!-- Services -->
+                    {{ with .GetTerms "services" }} {{ range . }}
+                    <li class="service-tag">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </li>
+                    {{ end }} {{ end }}
+                </ul>
+            </nav>
+        </hgroup>
     </header>
 
     <!-- Markdown -->
-    {{ with .Content }}
-    <section>{{ . }}</section>
-    {{ end }}
+    <section>{{ with .Content }}{{ . }} {{ end }}</section>
 
-    <!-- Next Page -->
+    <!-- Next Page 
     {{ with .PrevInSection }}
-    <section>
-        <h4>Next:</h4>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </section>
+    <h4>Next:</h4>
+    <div class="work-grid">
+        <a class="work-item" href="{{ .RelPermalink }}" data-theme="light">
+            {{ .Title }}
+        </a>
+    </div>
     {{ end }}
+     -->
 </main>
 {{ end }}

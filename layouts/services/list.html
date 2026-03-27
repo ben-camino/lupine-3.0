@@ -1,0 +1,52 @@
+{{ define "main" }}
+<main>
+    <!-- Header -->
+    <header class="white">
+        <hgroup>
+            <!-- Title -->
+            {{ with .Title }}
+            <h3>{{ . }}</h3>
+            {{ end }}
+
+            <!-- Subtitle -->
+            {{ with .Params.Subtitle }}
+            <h1>{{ . }}</h1>
+            {{ end }}
+        </hgroup>
+
+        <!-- Description -->
+        {{ with .Description }}
+        <p>{{ . }}</p>
+        {{ end}}
+    </header>
+
+    <!-- Pages -->
+    {{ with .Pages }}
+    <section class="white">
+        <nav>
+            <ul class="services-grid">
+                {{ range . }}
+                <li>
+                    <a class="service-item alt" href="{{ .Page.RelPermalink }}">
+                        <!-- Icon 
+                        {{ with .Page.Resources.Get "icon.svg" }}
+                        <object class="icon">
+                            {{ .Content | safeHTML }}
+                        </object>
+                        {{ end }}
+                        -->
+                        <!-- Title -->
+                        <h4>{{ .Page.Title }}</h4>
+                        <!-- Description -->
+                        {{ with .Page.Description }}
+                        <small>{{ . }}</small>
+                        {{ end }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </section>
+    {{ end }}
+</main>
+{{ end }}

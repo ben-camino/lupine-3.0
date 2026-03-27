@@ -1,6 +1,6 @@
 +++
 title = "Foothills Elementary"
-services = [ "interior murals" ]
+services = [ "custom murals" ]
 date = 2024-06-01
 location = "Lakewood, Colorado"
 +++

@@ -70,4 +70,11 @@
     padding: 0.5rem 1rem;
     background-color: var(--blue-2);
     border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.work-nav a:hover,
+.work-nav a:active {
+    background-color: var(--red-2);
+    transition: all 0.2s ease-in-out;
 }

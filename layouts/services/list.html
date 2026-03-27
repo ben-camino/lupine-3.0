@@ -22,19 +22,16 @@
 
     <!-- Pages -->
     {{ with .Pages }}
-    <section class="white">
+    <section class="white compact">
         <nav>
             <ul class="services-grid">
                 {{ range . }}
                 <li>
                     <a class="service-item alt" href="{{ .Page.RelPermalink }}">
-                        <!-- Icon 
+                        <!-- Icon -->
                         {{ with .Page.Resources.Get "icon.svg" }}
-                        <object class="icon">
-                            {{ .Content | safeHTML }}
-                        </object>
+                        <object>{{ .Content | safeHTML }}</object>
                         {{ end }}
-                        -->
                         <!-- Title -->
                         <h4>{{ .Page.Title }}</h4>
                         <!-- Description -->

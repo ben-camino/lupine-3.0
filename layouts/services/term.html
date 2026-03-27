@@ -29,7 +29,7 @@
     <!-- Work -->
     {{ $pages := .RegularPagesRecursive }} {{ $paginator := .Paginate $pages 12
     }} {{ with $paginator.Pages }}
-    <section>
+    <section class="compact">
         <nav>
             <ul class="work-grid">
                 {{ range . }}

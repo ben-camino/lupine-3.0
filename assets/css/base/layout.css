@@ -83,6 +83,12 @@ footer nav ul {
     flex-wrap: wrap;
 }
 
+@media (max-width: 400px) {
+    body > header .secondary {
+        display: none;
+    }
+}
+
 footer nav li,
 header nav li {
     flex-direction: row;
@@ -147,6 +153,10 @@ section {
     align-items: stretch;
     gap: 3rem;
     padding: 6rem 0;
+}
+
+section.compact {
+    padding: 2rem 0 6rem 0;
 }
 
 /* Section Backgrounds */

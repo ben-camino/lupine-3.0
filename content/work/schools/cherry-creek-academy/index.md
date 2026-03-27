@@ -4,6 +4,7 @@ services = [ "paint-by-number murals"]
 date = 2025-01-15
 location = "Denver, Colorado"
 featured = true
+weight = 8
 +++
 
 {{< gallery image="gallery/" >}}

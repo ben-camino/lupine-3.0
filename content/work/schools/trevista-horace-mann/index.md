@@ -4,6 +4,7 @@ services = [ "custom murals" ]
 date = 2025-04-15
 location = "Denver, Colorado"
 featured = true
+weight = 5
 +++
 
 {{< gallery image="gallery/" >}}

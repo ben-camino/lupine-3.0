@@ -1,7 +1,7 @@
 +++
 title = "Copper Mesa Elementary"
 services = [ "custom murals" ]
-date = 2025-12-01
+date = 2025-06-01
 location = "Highlands Ranch, Colorado"
 featured = false
 +++

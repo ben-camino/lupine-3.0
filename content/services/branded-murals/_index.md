@@ -1,5 +1,5 @@
 +++
 title = "Branded Murals"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+description = "Transform commercial spaces into a living expression of your brand's story and identity."
 weight = 2
 +++

@@ -1,5 +1,5 @@
 +++
 title = "Paint-by-number Murals"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. "
+description = "A guided, hands-on experience where communities paint a professionally designed mural together."
 weight = 4
 +++

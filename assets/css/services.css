@@ -44,7 +44,6 @@
     box-shadow: var(--shadow-1) 0px 4px 12px;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    background-color: var(--white);
 }
 
 .services-grid > li:nth-child(1) h4 {

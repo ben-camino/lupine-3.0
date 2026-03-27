@@ -1,5 +1,5 @@
 +++
 title = "Custom Murals"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+description = "Turn any wall into a story that reflects your community, vision, or the idea you've been waiting to see come to life."
 weight = 3
 +++

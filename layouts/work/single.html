@@ -9,17 +9,13 @@
             {{ end }}
 
             <div class="params">
-                <!-- Location -->
-                {{ with .Params.Location }}
-                <h3>{{ . }}</h3>
-                {{ end }}
+                <h3>
+                    <!-- Location -->
+                    {{ with .Params.Location }} {{ . }} {{ end }} •
 
-                <h3>•</h3>
-
-                <!-- Date -->
-                {{ with .Params.Date }}
-                <h3 class="date">{{ .Month }} {{ .Year }}</h3>
-                {{ end }}
+                    <!-- Date -->
+                    {{ with .Params.Date }} {{ .Month }}c{{ .Year }} {{ end }}
+                </h3>
             </div>
 
             <nav class="work-nav">

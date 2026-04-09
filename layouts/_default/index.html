@@ -52,11 +52,14 @@
                             alt="{{ $name_fmt }}"
                         />
                     </div>
+
+
+
                 {{ end }}
             </div>
         </header>
 
-        <!-- Image Right -->
+        <!-- Image Right
         {{ with resources.Get "index/heritage-sensory-mural.png" }}
             {{ $image := .Fill "1920x1920 center q90 webp" }}
             {{ $name := strings.TrimSuffix
@@ -69,6 +72,22 @@
                 />
             </div>
         {{ end }}
+        -->
+
+        <!-- Video Right -->
+        {{ with resources.Get "index/lupine-sensory-murals-compressed.mp4" }}
+            {{ $video := . }}
+            <div>
+                {{ with resources.Get "index/heritage-sensory-mural.png" }}
+                    {{ $image := .Fill "1920x1920 center q90 webp" }}
+                    <video autoplay controls muted loop poster="{{ $image.RelPermalink }}">
+                        <source src="{{ $video.RelPermalink }}" type="video/mp4">
+                    </video>
+                {{ end }}
+            </div>
+        {{ end }}
+        
+        
     </section>
 
     <!-- Subscribe 
